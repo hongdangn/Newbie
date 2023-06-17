@@ -10,3 +10,13 @@ print(name.isalpha()) #if all the letters are the alphabetical characters, retur
 print(name.count("a")) #count how many "a" characters in the name
 print(name.replace("a", "Q")) #first letter in the parentheness will be replaced by the second one
 print(name*4) #print the name 4 times
+
+#type casting = convert the data type of a value to another data type
+x = 1
+y = 2.1
+z = "3"
+
+y = str(y)
+z = float(z)
+print(z*3)
+print("The value of X is truly" + " " + y)
