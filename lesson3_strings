@@ -1,0 +1,5 @@
+#slicing string - return a range of characters by using the slice syntax
+x = "banana"
+print(x[1:4]) #get the chars from 1 to 4(not included)
+print(x[:4]) #slice from the start
+print(x[4:]) #slice from the end
