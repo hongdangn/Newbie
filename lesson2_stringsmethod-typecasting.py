@@ -20,3 +20,18 @@ y = str(y)
 z = float(z)
 print(z*3)
 print("The value of X is truly" + " " + y)
+
+#looping through a string
+for i in banana:
+    print(i)
+
+#length of string
+x = "Hello, world"
+print(len(x))
+
+#check if a certain phrase or character is in the string or not
+txt = "hong dang dep trai vay sao"
+if "vay" in txt:
+    print("Yes, 'vay' is present")
+if "tre" not in txt:
+    print("No, 'tre' is not present")
