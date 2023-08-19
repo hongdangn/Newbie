@@ -1,36 +1,34 @@
 import random
 
-cards = []
-suits = ["spades", "clubs", "hearts", "diamonds"]
-ranks = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"]
-for suit in suits:
-    for rank in ranks:
-        cards.append([suit, rank])
-
-def shuffle():
-    random.shuffle(cards)
+class Deck:
+  def __init__(self):
+    self.cards = []
+    suits = ["spades", "clubs", "hearts", "diamonds"]
+    ranks = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"]
     
-def deal(number):
-    cards_dealt = []
-    for item in range(number):
-        card = cards.pop()
-        cards_dealt.append(card)
-    return cards_dealt
-shuffle()
-cards_dealt = deal(2)
-card = cards_dealt[0]
-rank = card[1]
-print(card, rank)
+    n = len(ranks)
+    for i in range(n):
+      if ranks[i] == 'A':
+        ranks[i] = dict(rank = "A", value = 11)
+      elif ranks[i] == "J" or ranks[i] == "Q" or ranks[i] == "K":
+        ranks[i] = dict(rank = ranks[i], valule = 10)
+      else:
+        ranks[i] = dict(rank = str(ranks[i]), value = int(ranks[i]))
+        
+    for suit in suits:
+        for rank in ranks:
+            self.cards.append([suit, rank])
+    
+  def shuffle(self):
+      random.shuffle(self.cards)
+      
+  def deal(self, number):
+      cards_dealt = []
+      for item in range(number):
+          card = self.cards.pop()
+          cards_dealt.append(card)
+      return cards_dealt
 
-rank_dict = {}
-for item in ranks:
-    if item == "A":
-        value = 11
-    elif item == "J" or item == "K" or item == "Q":
-        value = 10
-    else:
-        value = item
-    rank_dict.update({str(item): value})
-print(rank_dict)
-print(rank, value)
-
+deck_1 = Deck()
+deck_1.shuffle()
+print(deck_1.cards)
